@@ -12,18 +12,7 @@ angular.module('starter.services', [])
   var particle = new Particle();
   var token;
 
-//TODO: change from password
-particle.login({username: 'YOUR_EMAIL', password: 'YOUR_PASSWORD'}).then(
-  function(data){
-    console.log('API call completed on promise resolve: ', data.body.access_token);
-    token = data.body.access_token;
-  getEventStream();
-
-  },
-  function(err) {
-    console.log('API call completed on promise fail: ', err);
-  }
-  );
+  token = '57c291e0afee2c04ae67a0337895eacf4060aae1';
 
 function getEventStream(){
 //Get all events
@@ -34,6 +23,8 @@ particle.getEventStream({ auth: token, deviceId: '350029000a47343337373738'}).th
   });
 });
 }
+
+getEventStream();
 
 return {
   temperatures: function() {

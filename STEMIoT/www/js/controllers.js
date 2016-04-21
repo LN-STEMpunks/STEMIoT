@@ -37,6 +37,7 @@ for (var i = 0; i < $scope.temperatures.length; ++i) {
 }
 
 var options = {
+  'legend': 'none',
   hAxis: {
     title: 'Time'
   },
