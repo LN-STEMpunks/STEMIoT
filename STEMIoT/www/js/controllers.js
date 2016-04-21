@@ -36,6 +36,9 @@ var temp_options = {
         max:100,
         min:55
     }*/
+  },
+  series: {
+    0: { color: 'ff0000' }
   }
 };
 
@@ -52,6 +55,9 @@ var pressure_options = {
         max:98000,
         min:99000
     }*/
+  },
+    series: {
+    0: { color: '0000ff' }
   }
 };
 
@@ -68,6 +74,9 @@ var humidity_options = {
         max:0,
         min:100
     }*/
+  },
+    series: {
+    0: { color: '006400' }
   }
 };
 
