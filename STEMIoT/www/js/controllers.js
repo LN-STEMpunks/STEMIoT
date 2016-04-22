@@ -49,12 +49,13 @@ var pressure_options = {
   },
   //Need a way to scale it better
   vAxis: {
-    title: 'Pressure (pascals)',
+    title: 'Pressure \n(pascals)',
     viewWindowMode:'explicit',
     /*viewWindow: {
         max:98000,
         min:99000
     }*/
+
   },
     series: {
     0: { color: '0000ff' }
