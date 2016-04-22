@@ -39,7 +39,15 @@ var temp_options = {
   },
   series: {
     0: { color: 'ff0000' }
-  }
+  },
+  trendlines: {
+      0: {
+        color: 'red',
+        lineWidth: 10,
+        opacity: 0.2,
+        type: 'linear'
+      }
+    }
 };
 
 var pressure_options = {
@@ -59,7 +67,15 @@ var pressure_options = {
   },
     series: {
     0: { color: '0000ff' }
-  }
+  },
+  trendlines: {
+      0: {
+        color: 'blue',
+        lineWidth: 10,
+        opacity: 0.2,
+        type: 'linear'
+      }
+    }
 };
 
 var humidity_options = {
@@ -78,14 +94,22 @@ var humidity_options = {
   },
     series: {
     0: { color: '006400' }
-  }
+  },
+  trendlines: {
+      0: {
+        color: 'green',
+        lineWidth: 10,
+        opacity: 0.2,
+        type: 'linear'
+      }
+    }
 };
 
 var temp_chart = new google.visualization.LineChart(document.getElementById('temp_div'));
 var pressure_chart = new google.visualization.LineChart(document.getElementById('pressure_div'));
 var humidity_chart = new google.visualization.LineChart(document.getElementById('humidity_div'));
 
-var max_measurements = 80;
+var max_measurements = 200;
 
 
 $rootScope.$on('dataRecievedEvent', function (event, args) {
