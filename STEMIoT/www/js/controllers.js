@@ -84,6 +84,8 @@ var temp_chart = new google.visualization.LineChart(document.getElementById('tem
 var pressure_chart = new google.visualization.LineChart(document.getElementById('pressure_div'));
 var humidity_chart = new google.visualization.LineChart(document.getElementById('humidity_div'));
 
+var max_measurements = 80;
+
 
 $rootScope.$on('dataRecievedEvent', function (event, args) {
   /*$scope.temperatures = Readings.temperatures();
@@ -91,12 +93,22 @@ $rootScope.$on('dataRecievedEvent', function (event, args) {
   $scope.humidities = Readings.humidities();*/
   if (args.name == "tempF") {
      temp_data.addRow([args.timestamp, Number(args.value)]);
+     if (temp_data.getNumberOfRows() > max_measurements) {
+        temp_data.removeRow(0);
+     }
   }
   if (args.name == "pascals") {
      pressure_data.addRow([args.timestamp, Number(args.value)]);
+     if (pressure_data.getNumberOfRows() > max_measurements) {
+        pressure_data.removeRow(0);
+     }
   }
   if (args.name == "humidity") {
      humidity_data.addRow([args.timestamp, Number(args.value)]);
+     if (humidity_data.getNumberOfRows() > max_measurements) {
+        humidity_data.removeRow(0);
+     }
+
   }
   temp_chart.draw(temp_data, temp_options);
   pressure_chart.draw(pressure_data, pressure_options);
