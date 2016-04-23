@@ -1,5 +1,16 @@
 angular.module('starter.controllers', [])
 
+.controller('LoadingCtrl', function($scope, $ionicLoading) {
+  $scope.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+  };
+  $scope.hide = function(){
+    $ionicLoading.hide();
+  };
+})
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ReadingsCtrl', function($rootScope, $scope, Readings) {
@@ -9,6 +20,11 @@ angular.module('starter.controllers', [])
 
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawBasic);
+
+$scope.dataLoaded = false;
+$scope.loadingMsg = 'Loading...';
+
+
 function drawBasic() {
 
   var temp_data = new google.visualization.DataTable();
@@ -26,7 +42,7 @@ function drawBasic() {
 var temp_options = {
   'legend': 'none',
   hAxis: {
-    title: 'Time'
+    title: ''
   },
   //Need a way to scale it better
   vAxis: {
@@ -53,7 +69,7 @@ var temp_options = {
 var pressure_options = {
   'legend': 'none',
   hAxis: {
-    title: 'Time'
+    title: ''
   },
   //Need a way to scale it better
   vAxis: {
@@ -81,7 +97,7 @@ var pressure_options = {
 var humidity_options = {
   'legend': 'none',
   hAxis: {
-    title: 'Time'
+    title: ''
   },
   //Need a way to scale it better
   vAxis: {
@@ -138,6 +154,10 @@ $rootScope.$on('dataRecievedEvent', function (event, args) {
   temp_chart.draw(temp_data, temp_options);
   pressure_chart.draw(pressure_data, pressure_options);
   humidity_chart.draw(humidity_data, humidity_options);
+  if ($scope.dataLoaded == false) {
+    $scope.dataLoaded = true;
+    $scope.$apply();
+  }
 })
 }
 })

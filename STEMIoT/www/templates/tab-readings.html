@@ -1,10 +1,11 @@
 <ion-view view-title="Readings From FRC 3966's Lab">
   <ion-content>
-    <div id="temp_div">
+    <div ng-hide="dataLoaded" class="centerSpinner">
+      <ion-spinner></ion-spinner>
+        {{loadingMsg}}
     </div>
-        <div id="pressure_div">
-    </div>
-        <div id="humidity_div">
-    </div>
+    <div id="temp_div"></div>
+    <div id="pressure_div"></div>
+    <div id="humidity_div"></div>
   </ion-content>
 </ion-view>

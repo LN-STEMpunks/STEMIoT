@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+
+.centerSpinner {
+	vertical-align: center;
+	text-align: center;
+	font-size: 2em;
+	/*width: 200px;*/
+}
